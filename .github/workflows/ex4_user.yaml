@@ -4,6 +4,6 @@ on:
 
 jobs:
   run-reusable:
-    uses: {{ github.repository }}/.github/workflows/path/to/repo@feat/myfeature
+    uses: ${{ github.repository }}/.github/workflows/path/to/repo@feat/myfeature
     with:
       node_version: '16'
