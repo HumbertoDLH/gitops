@@ -4,6 +4,6 @@ on:
 
 jobs:
   run-reusable:
-    uses: .github/workflows
+    uses: ${{ github.repository }}/.github/workflows/ex4.yaml@feat/myfeature
     with:
       node_version: '16'
