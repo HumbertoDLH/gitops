@@ -11,7 +11,9 @@ jobs:
       - name: "Get short sha"
         id: short_sha
         run: |
-          echo 'sha_short=${GITHUB_SHA::7}' >> $GITHUB_OUTPUT
+          echo 'sha_short=$SHORT_SHA' >> $GITHUB_OUTPUT
+        env:
+          SHORT_SHA: ${GITHUB_SHA::7}
       - name: "Create github issue"
         run: |
             curl --request POST \
