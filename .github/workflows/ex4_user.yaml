@@ -4,6 +4,6 @@ on:
 
 jobs:
   run-reusable:
-    uses: HumbertoDLH/gitops/.github/workflows@feat/myfeature
+    uses: .github/workflows
     with:
       node_version: '16'
