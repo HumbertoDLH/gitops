@@ -11,9 +11,9 @@ jobs:
       - name: "Get short sha"
         id: short_sha
         run: |
-          echo 'sha_short=$SHORT_SHA' >> $GITHUB_OUTPUT
+          echo "sha_short=$SHORT_SHA" >> $GITHUB_OUTPUT
         env:
-          SHORT_SHA: ${GITHUB_SHA::7}
+          SHORT_SHA: ${github.GITHUB_SHA::7}
       - name: "Create github issue"
         run: |
             curl --request POST \
@@ -25,21 +25,3 @@ jobs:
               "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ steps.short_sha.outputs.sha_short }}_."
               }' \
             --fail
-
-
-# jobs:
-#   run-npm-test:
-#     runs-on: ubuntu-latest
-#     steps:
-#         - name: checkout
-#           uses: actions/checkout@v3
-#         - name : setup node
-#           uses: actions/setup-node@v3
-#           with:
-#             node-version: ${{env.NODE_VERSION}}
-#         - name: run test
-#           shell: bash
-#           run: |
-#             npm install
-#             npm test
-#             node -v
