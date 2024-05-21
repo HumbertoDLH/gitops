@@ -11,7 +11,7 @@ jobs:
       - name: "Get short sha"
         id: short_sha
         run: |
-          echo "sha_short=${{ github.sha }}" >> $GITHUB_OUTPUT
+          echo "sha_short=${{ github.sha::7 }}" >> $GITHUB_OUTPUT
       - name: "Create github issue"
         run: |
             curl --request POST \
