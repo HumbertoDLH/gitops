@@ -16,7 +16,7 @@ jobs:
       - name: "Create github issue"
         run: |
             curl --request POST \
-            --url https://api.github.com/repos/HumbertoDLH/gitops/issues \
+            --url https://api.github.com/repos/${{ github.repository }}/issues \
             --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
             --header 'content-type: application/json' \
             --data '{
