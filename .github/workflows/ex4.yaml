@@ -5,9 +5,7 @@ on:
       node_version:
         required: false
         type: string
-
-env:
-  default_node_version: 'lts/*'
+        default: 'lts/*'
 
 jobs:
   run-npm-test:
@@ -18,7 +16,7 @@ jobs:
         - name : setup node
           uses: actions/setup-node@v3
           with:
-            node-version: ${{ inputs.node_version || env.default_node_version }}
+            node-version: ${{ inputs.node_version }}
         - name: run test
           shell: bash
           run: |
