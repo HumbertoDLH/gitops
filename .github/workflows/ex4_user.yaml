@@ -1,0 +1,9 @@
+name: reusable workflow user
+on: 
+  workflow_dispatch:
+
+jobs:
+  run-reusable:
+    uses: {{ github.repository }}/.github/workflows/path/to/repo@feat/myfeature
+    with:
+      node_version: '16'

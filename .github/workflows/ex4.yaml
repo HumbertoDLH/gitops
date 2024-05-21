@@ -2,7 +2,7 @@ name: reusable workflow
 on: 
   workflow_dispatch:
     inputs:
-      node-version:
+      node_version:
         required: false
         type: string
 
@@ -18,7 +18,7 @@ jobs:
         - name : setup node
           uses: actions/setup-node@v3
           with:
-            node-version: ${{ inputs.node-version || env.default_node_version }}
+            node-version: ${{ inputs.node_version || env.default_node_version }}
         - name: run test
           shell: bash
           run: |
