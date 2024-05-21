@@ -11,7 +11,7 @@ jobs:
       - name: "Get short sha"
         id: short_sha
         run: |
-          echo "sha_short=${$FULL_SHA:0:7}" >> $GITHUB_OUTPUT
+          echo "sha_short=${FULL_SHA::7}" >> $GITHUB_OUTPUT
         env:
           FULL_SHA: ${{ github.sha }}
       - name: "Create github issue"
